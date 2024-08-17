@@ -4089,58 +4089,270 @@
             stop
         });
     }
-    if (document.querySelector(".swiper")) new core(".otsiv__slider", {
-        modules: [ Navigation, Pagination, Autoplay ],
-        observer: true,
-        observeParents: true,
-        slidesPerView: 3,
-        spaceBetween: 0,
-        autoHeight: true,
-        speed: 800,
-        centeredSlides: true,
-        loop: true,
-        effect: "fade",
-        autoplay: {
-            delay: 3e3,
-            disableOnInteraction: false
-        },
-        navigation: {
-            prevEl: ".swiper-button-prev",
-            nextEl: ".swiper-button-next"
-        },
-        on: {}
-    });
-    if (document.querySelector(".swiper")) new core(".comand__slider", {
-        modules: [ Navigation, Pagination, Autoplay ],
-        observer: true,
-        observeParents: true,
-        slidesPerView: 3,
-        spaceBetween: 0,
-        autoHeight: true,
-        speed: 800,
-        centeredSlides: true,
-        initialSlide: 1,
-        pagination: {
-            el: ".swiper-pagination",
-            clickable: true
-        },
-        breakpoints: {
-            320: {
-                slidesPerView: 1,
-                spaceBetween: 20,
-                autoHeight: true
+    if (document.querySelector(".swiper")) {
+        new core(".comand__slider", {
+            modules: [ Navigation, Pagination, Autoplay ],
+            observer: true,
+            observeParents: true,
+            slidesPerView: 3,
+            spaceBetween: 0,
+            autoHeight: true,
+            speed: 800,
+            centeredSlides: true,
+            initialSlide: 1,
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true
             },
-            768: {
-                slidesPerView: 1,
-                spaceBetween: 0
+            breakpoints: {
+                320: {
+                    slidesPerView: 1,
+                    spaceBetween: 20,
+                    autoHeight: true
+                },
+                768: {
+                    slidesPerView: 1,
+                    spaceBetween: 0
+                },
+                1100: {
+                    slidesPerView: 3,
+                    spaceBetween: 0
+                }
             },
-            1100: {
-                slidesPerView: 3,
-                spaceBetween: 0
+            on: {}
+        });
+        new core(".tarif__slider", {
+            modules: [ Navigation, Pagination, Autoplay ],
+            observer: true,
+            observeParents: true,
+            slidesPerView: 5,
+            spaceBetween: 0,
+            autoHeight: true,
+            speed: 800,
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true
+            },
+            breakpoints: {
+                320: {
+                    slidesPerView: 1,
+                    spaceBetween: 20,
+                    autoHeight: true
+                },
+                768: {
+                    slidesPerView: 1,
+                    spaceBetween: 0,
+                    centeredSlides: true
+                },
+                1101: {
+                    slidesPerView: 5,
+                    spaceBetween: 0
+                }
+            },
+            on: {}
+        });
+        new core(".otsiv__slider", {
+            modules: [ Navigation, Pagination, Autoplay ],
+            observer: true,
+            observeParents: true,
+            slidesPerView: 3,
+            spaceBetween: 0,
+            autoHeight: true,
+            speed: 800,
+            centeredSlides: true,
+            loop: true,
+            effect: "fade",
+            autoplay: {
+                delay: 3e3,
+                disableOnInteraction: false
+            },
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: false
+            },
+            navigation: {
+                prevEl: ".swiper-button-prev",
+                nextEl: ".swiper-button-next"
+            },
+            breakpoints: {
+                320: {
+                    slidesPerView: 1,
+                    spaceBetween: 20,
+                    autoHeight: true
+                },
+                768: {
+                    slidesPerView: 1,
+                    spaceBetween: 0,
+                    pagination: {
+                        el: ".swiper-pagination",
+                        clickable: true
+                    },
+                    navigation: false
+                },
+                1100: {
+                    slidesPerView: 3,
+                    spaceBetween: 20
+                }
+            },
+            on: {}
+        });
+        new core(".vibor__slider", {
+            modules: [ Navigation, Pagination, Autoplay ],
+            observer: true,
+            observeParents: true,
+            slidesPerView: 2,
+            spaceBetween: 0,
+            autoHeight: true,
+            speed: 800,
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true
+            },
+            breakpoints: {
+                320: {
+                    slidesPerView: 1,
+                    spaceBetween: 20,
+                    autoHeight: true
+                },
+                768: {
+                    slidesPerView: 1,
+                    spaceBetween: 0
+                },
+                1100: {
+                    slidesPerView: 2,
+                    spaceBetween: 20
+                }
+            },
+            on: {}
+        });
+        new core(".viddeo__slider", {
+            modules: [ Navigation, Pagination, Autoplay ],
+            observer: true,
+            observeParents: true,
+            slidesPerView: 3,
+            spaceBetween: 0,
+            autoHeight: true,
+            speed: 800,
+            centeredSlides: true,
+            loop: true,
+            initialSlide: 1,
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: false
+            },
+            navigation: {
+                prevEl: ".swiper-button-prev",
+                nextEl: ".swiper-button-next"
+            },
+            breakpoints: {
+                320: {
+                    slidesPerView: 1,
+                    spaceBetween: 20,
+                    autoHeight: true
+                },
+                768: {
+                    slidesPerView: 1,
+                    spaceBetween: 0,
+                    pagination: {
+                        el: ".swiper-pagination",
+                        clickable: true
+                    }
+                },
+                1180: {
+                    slidesPerView: 3,
+                    spaceBetween: 0
+                }
+            },
+            on: {}
+        });
+        new core(".vid__slider", {
+            modules: [ Navigation, Pagination, Autoplay ],
+            observer: true,
+            observeParents: true,
+            slidesPerView: 6,
+            spaceBetween: 0,
+            autoHeight: true,
+            speed: 800,
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: false,
+                renderBullet: function(index, className) {
+                    return '<span class="' + className + '"></span>';
+                }
+            },
+            navigation: {
+                prevEl: ".swiper-button-prev",
+                nextEl: ".swiper-button-next"
+            },
+            breakpoints: {
+                320: {
+                    slidesPerView: 2,
+                    spaceBetween: 20,
+                    autoHeight: true
+                },
+                768: {
+                    slidesPerView: 3,
+                    spaceBetween: 20,
+                    pagination: {
+                        el: ".swiper-pagination",
+                        clickable: true
+                    }
+                },
+                1180: {
+                    slidesPerView: 5,
+                    spaceBetween: 20
+                },
+                1260: {
+                    slidesPerView: 6,
+                    spaceBetween: 20
+                }
+            },
+            on: {
+                slideChange: function() {
+                    const swiper = this;
+                    swiper.slides.length;
+                    const visibleSlides = swiper.params.slidesPerView;
+                    const activeIndex = swiper.activeIndex;
+                    const endSlide = activeIndex + visibleSlides;
+                    const bullets = document.querySelectorAll(".swiper-pagination-bullet");
+                    bullets.forEach(((bullet, index) => {
+                        if (index >= activeIndex && index < endSlide) bullet.classList.add("swiper-pagination-bullet-active"); else bullet.classList.remove("swiper-pagination-bullet-active");
+                    }));
+                }
             }
-        },
-        on: {}
-    });
+        });
+        new core(".comand__slider-two", {
+            modules: [ Navigation, Pagination, Autoplay ],
+            observer: true,
+            observeParents: true,
+            slidesPerView: 3,
+            spaceBetween: 0,
+            autoHeight: true,
+            speed: 800,
+            centeredSlides: true,
+            initialSlide: 1,
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true
+            },
+            breakpoints: {
+                320: {
+                    slidesPerView: 1,
+                    spaceBetween: 20,
+                    autoHeight: true
+                },
+                768: {
+                    slidesPerView: 1,
+                    spaceBetween: 0
+                },
+                1100: {
+                    slidesPerView: 3,
+                    spaceBetween: 0
+                }
+            },
+            on: {}
+        });
+    }
     window.addEventListener("load", (function(e) {
         initSliders();
     }));
@@ -4647,6 +4859,27 @@
     menuInit();
     spollers();
     pageNavigation();
+    const containers = document.querySelectorAll(".vibe__container");
+    containers.forEach((container => {
+        const body = container.querySelector(".vibe__body");
+        let currentScrollPosition = 0;
+        container.addEventListener("mousemove", (e => {
+            const containerWidth = container.offsetWidth;
+            const bodyWidth = body.scrollWidth;
+            if (bodyWidth > containerWidth) {
+                const mouseX = e.clientX - container.getBoundingClientRect().left;
+                const centerX = containerWidth / 2;
+                const maxScroll = bodyWidth - containerWidth;
+                if (mouseX < centerX) currentScrollPosition = (1 - mouseX / centerX) * maxScroll; else currentScrollPosition = -(mouseX - centerX) / centerX * maxScroll;
+                body.style.transform = `translateX(${currentScrollPosition}px)`;
+                body.style.transition = "transform 0.6s ease-out";
+            }
+        }));
+        container.addEventListener("mouseleave", (() => {
+            body.style.transform = "translateX(0)";
+            body.style.transition = "transform 0.9s ease";
+        }));
+    }));
     document.querySelectorAll(".select").forEach((select => {
         const title = select.querySelector(".select__title");
         const options = select.querySelector(".select__options");
@@ -4666,5 +4899,26 @@
         document.addEventListener("click", (e => {
             if (!select.contains(e.target)) select.classList.remove("_select-open");
         }));
+    }));
+    document.querySelector(".vid-fon-back__button").addEventListener("click", (function() {
+        this.classList.toggle("vid-back__button-active");
+        document.querySelector(".ri-sun-line").classList.toggle("ri-sun-line-active");
+        const video1 = document.querySelector(".video1");
+        const video2 = document.querySelector(".video2");
+        if (video1.classList.contains("hidden")) {
+            video1.classList.remove("hidden");
+            video2.classList.add("hidden");
+        } else {
+            video1.classList.add("hidden");
+            video2.classList.remove("hidden");
+        }
+    }));
+    window.addEventListener("load", (function() {
+        const video = document.querySelector(".background-video");
+        setTimeout((function() {
+            if (video.readyState >= 3) video.classList.add("loaded"); else video.addEventListener("canplaythrough", (function() {
+                video.classList.add("loaded");
+            }));
+        }), 12e3);
     }));
 })();
