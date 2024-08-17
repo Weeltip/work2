@@ -4265,62 +4265,6 @@
             },
             on: {}
         });
-        new core(".vid__slider", {
-            modules: [ Navigation, Pagination, Autoplay ],
-            observer: true,
-            observeParents: true,
-            slidesPerView: 6,
-            spaceBetween: 0,
-            autoHeight: true,
-            speed: 800,
-            pagination: {
-                el: ".swiper-pagination",
-                clickable: false,
-                renderBullet: function(index, className) {
-                    return '<span class="' + className + '"></span>';
-                }
-            },
-            navigation: {
-                prevEl: ".swiper-button-prev",
-                nextEl: ".swiper-button-next"
-            },
-            breakpoints: {
-                320: {
-                    slidesPerView: 2,
-                    spaceBetween: 20,
-                    autoHeight: true
-                },
-                768: {
-                    slidesPerView: 3,
-                    spaceBetween: 20,
-                    pagination: {
-                        el: ".swiper-pagination",
-                        clickable: true
-                    }
-                },
-                1180: {
-                    slidesPerView: 5,
-                    spaceBetween: 20
-                },
-                1260: {
-                    slidesPerView: 6,
-                    spaceBetween: 20
-                }
-            },
-            on: {
-                slideChange: function() {
-                    const swiper = this;
-                    swiper.slides.length;
-                    const visibleSlides = swiper.params.slidesPerView;
-                    const activeIndex = swiper.activeIndex;
-                    const endSlide = activeIndex + visibleSlides;
-                    const bullets = document.querySelectorAll(".swiper-pagination-bullet");
-                    bullets.forEach(((bullet, index) => {
-                        if (index >= activeIndex && index < endSlide) bullet.classList.add("swiper-pagination-bullet-active"); else bullet.classList.remove("swiper-pagination-bullet-active");
-                    }));
-                }
-            }
-        });
         new core(".comand__slider-two", {
             modules: [ Navigation, Pagination, Autoplay ],
             observer: true,
@@ -4348,6 +4292,47 @@
                 1100: {
                     slidesPerView: 3,
                     spaceBetween: 0
+                }
+            },
+            on: {}
+        });
+        new core(".vid__slider", {
+            modules: [ Navigation, Pagination, Autoplay ],
+            observer: true,
+            observeParents: true,
+            slidesPerView: 6,
+            spaceBetween: 0,
+            autoHeight: true,
+            speed: 800,
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: false
+            },
+            navigation: {
+                prevEl: ".swiper-button-prev",
+                nextEl: ".swiper-button-next"
+            },
+            breakpoints: {
+                320: {
+                    slidesPerView: 2,
+                    spaceBetween: 20,
+                    autoHeight: true
+                },
+                768: {
+                    slidesPerView: 3,
+                    spaceBetween: 20,
+                    pagination: {
+                        el: ".swiper-pagination",
+                        clickable: true
+                    }
+                },
+                1180: {
+                    slidesPerView: 5,
+                    spaceBetween: 20
+                },
+                1260: {
+                    slidesPerView: 6,
+                    spaceBetween: 20
                 }
             },
             on: {}
@@ -4859,7 +4844,7 @@
     menuInit();
     spollers();
     pageNavigation();
-    const containers = document.querySelectorAll(".vibe__container");
+    const containers = document.querySelectorAll(".vibe");
     containers.forEach((container => {
         const body = container.querySelector(".vibe__body");
         let currentScrollPosition = 0;
