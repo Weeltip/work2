@@ -2615,6 +2615,7 @@ h2 {
         -ms-flex-align: start;
             align-items: start;
     overflow-x: scroll;
+    overflow-y: hidden;
     scrollbar-width: none;
   }
   .vibe__container::-webkit-scrollbar {
@@ -2628,6 +2629,21 @@ h2 {
   transition: transform 0.3s ease-in-out;
   transition: transform 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
   will-change: transform;
+}
+
+.center {
+  text-align: center;
+  display: block;
+}
+
+.db {
+  display: block;
+}
+
+@media (max-width: 47.99875em) {
+  .colblue {
+    color: #001F49;
+  }
 }
 /**
  * Swiper 7.2.0
