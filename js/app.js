@@ -4850,27 +4850,34 @@
         const vibeContainer = container.querySelector(".vibe__container");
         const vibe = container;
         let currentScrollPosition = 0;
+        let isMoving = false;
         vibeContainer.addEventListener("mousemove", (e => {
-            const containerWidth = vibeContainer.offsetWidth;
-            const vibeWidth = vibe.offsetWidth;
-            const bodyWidth = body.scrollWidth;
-            if (bodyWidth > vibeWidth) {
-                vibeContainer.getBoundingClientRect();
-                const vibeRect = vibe.getBoundingClientRect();
-                const mouseX = e.clientX - vibeRect.left;
-                const centerX = vibeWidth / 2;
-                const maxScroll = bodyWidth - vibeWidth;
-                const offset = 10;
-                const visibleRightEdge = Math.min(containerWidth / 2, (bodyWidth - vibeWidth) / 2) + offset;
-                const visibleLeftEdge = -Math.min(containerWidth / 2, (bodyWidth - vibeWidth) / 2) - offset;
-                const relativePosition = mouseX - centerX;
-                const scrollPercentage = relativePosition / (containerWidth / 2);
-                currentScrollPosition = -scrollPercentage * maxScroll;
-                currentScrollPosition = Math.max(Math.min(currentScrollPosition, maxScroll), -maxScroll);
-                const finalScrollPosition = Math.min(Math.max(currentScrollPosition, visibleLeftEdge), visibleRightEdge);
-                body.style.transform = `translateX(${finalScrollPosition}px)`;
-                body.style.transition = "transform 0.6s ease-out";
-                body.style.pointerEvents = "auto";
+            if (!isMoving) {
+                isMoving = true;
+                requestAnimationFrame((() => {
+                    const containerWidth = vibeContainer.offsetWidth;
+                    const vibeWidth = vibe.offsetWidth;
+                    const bodyWidth = body.scrollWidth;
+                    if (bodyWidth > vibeWidth) {
+                        vibeContainer.getBoundingClientRect();
+                        const vibeRect = vibe.getBoundingClientRect();
+                        const mouseX = e.clientX - vibeRect.left;
+                        const centerX = vibeWidth / 2;
+                        const maxScroll = bodyWidth - vibeWidth;
+                        const offset = 10;
+                        const visibleRightEdge = Math.min(containerWidth / 2, (bodyWidth - vibeWidth) / 2) + offset;
+                        const visibleLeftEdge = -Math.min(containerWidth / 2, (bodyWidth - vibeWidth) / 2) - offset;
+                        const relativePosition = mouseX - centerX;
+                        const scrollPercentage = relativePosition / (containerWidth / 2);
+                        currentScrollPosition = -scrollPercentage * maxScroll;
+                        currentScrollPosition = Math.max(Math.min(currentScrollPosition, maxScroll), -maxScroll);
+                        const finalScrollPosition = Math.min(Math.max(currentScrollPosition, visibleLeftEdge), visibleRightEdge);
+                        body.style.transform = `translateX(${finalScrollPosition}px)`;
+                        body.style.transition = "transform 0.6s ease-out";
+                        body.style.pointerEvents = "auto";
+                    }
+                    isMoving = false;
+                }));
             }
         }));
         vibeContainer.addEventListener("mouseleave", (() => {
