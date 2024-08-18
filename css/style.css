@@ -514,7 +514,7 @@ h2 {
 
 .header {
   background: #A22929;
-  padding: 18px 0;
+  padding: 6px 0;
 }
 
 .header ul {
@@ -675,6 +675,9 @@ h2 {
     -webkit-box-pack: justify;
         -ms-flex-pack: justify;
             justify-content: space-between;
+  }
+  .header {
+    padding: 13px 0;
   }
   .header .spollers__body i {
     display: none;
@@ -2626,6 +2629,12 @@ h2 {
       -ms-flex-align: center;
           align-items: center;
   padding-bottom: 20px;
+  will-change: transform; /* Указывает браузеру, что будет происходить изменение свойства transform */
+  -webkit-transition: -webkit-transform 0.85s ease-out;
+  transition: -webkit-transform 0.85s ease-out;
+  -o-transition: transform 0.85s ease-out;
+  transition: transform 0.85s ease-out;
+  transition: transform 0.85s ease-out, -webkit-transform 0.85s ease-out; /* Плавное перемещение */
   width: -webkit-max-content;
   width: -moz-max-content;
   width: max-content;
@@ -2661,15 +2670,6 @@ h2 {
     display: none;
   }
 }
-.vibe__body {
-  -webkit-transition: -webkit-transform 0.3s ease-in-out;
-  transition: -webkit-transform 0.3s ease-in-out;
-  -o-transition: transform 0.3s ease-in-out;
-  transition: transform 0.3s ease-in-out;
-  transition: transform 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
-  will-change: transform;
-}
-
 .center {
   text-align: center;
   display: block;
