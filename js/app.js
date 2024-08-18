@@ -4857,7 +4857,7 @@
             if (isMoving) {
                 currentScrollPosition = lerp(currentScrollPosition, targetScrollPosition, .4);
                 body.style.transform = `translateX(${currentScrollPosition}px)`;
-                if (Math.abs(currentScrollPosition - targetScrollPosition) > .8) requestAnimationFrame(animateScroll); else isMoving = false;
+                if (Math.abs(currentScrollPosition - targetScrollPosition) > .5) requestAnimationFrame(animateScroll); else isMoving = false;
             }
         }
         vibeContainer.addEventListener("mousemove", (e => {
@@ -4869,9 +4869,8 @@
                 const mouseX = e.clientX - vibeRect.left;
                 const centerX = vibeWidth / 2;
                 const maxScroll = bodyWidth - vibeWidth;
-                const offset = 10;
-                const visibleRightEdge = Math.min(containerWidth / 2, (bodyWidth - vibeWidth) / 2) + offset;
-                const visibleLeftEdge = -Math.min(containerWidth / 2, (bodyWidth - vibeWidth) / 2) - offset;
+                const visibleRightEdge = Math.min(containerWidth / 2, (bodyWidth - vibeWidth) / 2);
+                const visibleLeftEdge = -Math.min(containerWidth / 2, (bodyWidth - vibeWidth) / 2);
                 const relativePosition = mouseX - centerX;
                 const scrollPercentage = relativePosition / (containerWidth / 2);
                 targetScrollPosition = -scrollPercentage * maxScroll;
@@ -4910,5 +4909,26 @@
         document.addEventListener("click", (e => {
             if (!select.contains(e.target)) select.classList.remove("_select-open");
         }));
+    }));
+    document.querySelector(".vid-fon-back__button").addEventListener("click", (function() {
+        this.classList.toggle("vid-back__button-active");
+        document.querySelector(".ri-sun-line").classList.toggle("ri-sun-line-active");
+        const video1 = document.querySelector(".video1");
+        const video2 = document.querySelector(".video2");
+        if (video1.classList.contains("hidden")) {
+            video1.classList.remove("hidden");
+            video2.classList.add("hidden");
+        } else {
+            video1.classList.add("hidden");
+            video2.classList.remove("hidden");
+        }
+    }));
+    window.addEventListener("load", (function() {
+        const video = document.querySelector(".background-video");
+        setTimeout((function() {
+            if (video.readyState >= 3) video.classList.add("loaded"); else video.addEventListener("canplaythrough", (function() {
+                video.classList.add("loaded");
+            }));
+        }), 12e3);
     }));
 })();
