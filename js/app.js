@@ -4847,20 +4847,33 @@
     const containers = document.querySelectorAll(".vibe");
     containers.forEach((container => {
         const body = container.querySelector(".vibe__body");
+        const vibeContainer = container.querySelector(".vibe__container");
+        const vibe = container;
         let currentScrollPosition = 0;
-        container.addEventListener("mousemove", (e => {
-            const containerWidth = container.offsetWidth;
+        vibeContainer.addEventListener("mousemove", (e => {
+            const containerWidth = vibeContainer.offsetWidth;
+            const vibeWidth = vibe.offsetWidth;
             const bodyWidth = body.scrollWidth;
-            if (bodyWidth > containerWidth) {
-                const mouseX = e.clientX - container.getBoundingClientRect().left;
-                const centerX = containerWidth / 2;
-                const maxScroll = bodyWidth - containerWidth;
-                if (mouseX < centerX) currentScrollPosition = (1 - mouseX / centerX) * maxScroll; else currentScrollPosition = -(mouseX - centerX) / centerX * maxScroll;
-                body.style.transform = `translateX(${currentScrollPosition}px)`;
+            if (bodyWidth > vibeWidth) {
+                vibeContainer.getBoundingClientRect();
+                const vibeRect = vibe.getBoundingClientRect();
+                const mouseX = e.clientX - vibeRect.left;
+                const centerX = vibeWidth / 2;
+                const maxScroll = bodyWidth - vibeWidth;
+                const offset = 10;
+                const visibleRightEdge = Math.min(containerWidth / 2, (bodyWidth - vibeWidth) / 2) + offset;
+                const visibleLeftEdge = -Math.min(containerWidth / 2, (bodyWidth - vibeWidth) / 2) - offset;
+                const relativePosition = mouseX - centerX;
+                const scrollPercentage = relativePosition / (containerWidth / 2);
+                currentScrollPosition = -scrollPercentage * maxScroll;
+                currentScrollPosition = Math.max(Math.min(currentScrollPosition, maxScroll), -maxScroll);
+                const finalScrollPosition = Math.min(Math.max(currentScrollPosition, visibleLeftEdge), visibleRightEdge);
+                body.style.transform = `translateX(${finalScrollPosition}px)`;
                 body.style.transition = "transform 0.6s ease-out";
+                body.style.pointerEvents = "auto";
             }
         }));
-        container.addEventListener("mouseleave", (() => {
+        vibeContainer.addEventListener("mouseleave", (() => {
             body.style.transform = "translateX(0)";
             body.style.transition = "transform 0.9s ease";
         }));

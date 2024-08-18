@@ -625,8 +625,8 @@ h2 {
   display: -ms-grid;
   display: grid;
   gap: 10px;
-  width: 342px;
   background: #a78787;
+  width: 21.375rem;
   position: relative;
   padding: 20px;
   border-radius: 15px;
@@ -637,7 +637,7 @@ h2 {
   padding-bottom: 0.875rem;
   padding-top: 0.875rem;
 }
-.header .spollers__body div a:last-child{
+.header .spollers__body div a:last-child {
   border-bottom: none;
 }
 .header .spollers__body i {
