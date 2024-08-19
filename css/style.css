@@ -595,8 +595,8 @@ h2 {
   -webkit-box-pack: end;
       -ms-flex-pack: end;
           justify-content: end;
-  -ms-flex-preferred-size: 34%;
-      flex-basis: 34%;
+  -ms-flex-preferred-size: 28%;
+      flex-basis: 28%;
   gap: 23px;
 }
 @supports (gap: clamp( 0.625rem , -0.4330035971rem  +  1.5587529976vw , 1.4375rem )) {
@@ -615,6 +615,12 @@ h2 {
   }
 }
 
+@media (max-width: 91.25em) {
+  .header .header__col {
+    -ms-flex-preferred-size: 34%;
+        flex-basis: 34%;
+  }
+}
 .header .header__col i::before {
   font-size: 21px;
 }
@@ -780,7 +786,7 @@ h2 {
 }
 @media (max-width: 47.99875em) {
   .header .header__menu {
-    margin-top: 4.8125rem;
+    margin-top: 3.75rem;
   }
 }
 .icon-menu {
@@ -2373,9 +2379,6 @@ h2 {
             justify-content: center;
   }
   .nas__top {
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
   }
@@ -2523,14 +2526,19 @@ h2 {
   height: 22.5rem;
   position: relative;
 }
-@supports (width: clamp( 20.3125rem , 17.675rem  +  13.1875vw , 33.5rem )) {
+@supports (width: clamp( 27.1875rem , -5.5967741935rem  +  32.5806451613vw , 33.5rem )) {
   .vibe__block {
-    width: clamp( 20.3125rem , 17.675rem  +  13.1875vw , 33.5rem );
+    width: clamp( 27.1875rem , -5.5967741935rem  +  32.5806451613vw , 33.5rem );
   }
 }
-@supports not (width: clamp( 20.3125rem , 17.675rem  +  13.1875vw , 33.5rem )) {
+@supports not (width: clamp( 27.1875rem , -5.5967741935rem  +  32.5806451613vw , 33.5rem )) {
   .vibe__block {
-    width: calc(20.3125rem + 13.1875 * (100vw - 20rem) / 100);
+    width: calc(27.1875rem + 6.3125 * (100vw - 100.625rem) / 19.375);
+  }
+}
+@media (max-width: 100.625em) {
+  .vibe__block {
+    width: inherit;
   }
 }
 .vibe__block button {
@@ -2587,14 +2595,19 @@ h2 {
           flex-direction: column;
   padding: 30px 15px;
 }
-@supports (width: clamp( 20.3125rem , 17.675rem  +  13.1875vw , 33.5rem )) {
+@supports (width: clamp( 27.1875rem , -5.5967741935rem  +  32.5806451613vw , 33.5rem )) {
   .vibe__block-dop {
-    width: clamp( 20.3125rem , 17.675rem  +  13.1875vw , 33.5rem );
+    width: clamp( 27.1875rem , -5.5967741935rem  +  32.5806451613vw , 33.5rem );
   }
 }
-@supports not (width: clamp( 20.3125rem , 17.675rem  +  13.1875vw , 33.5rem )) {
+@supports not (width: clamp( 27.1875rem , -5.5967741935rem  +  32.5806451613vw , 33.5rem )) {
   .vibe__block-dop {
-    width: calc(20.3125rem + 13.1875 * (100vw - 20rem) / 100);
+    width: calc(27.1875rem + 6.3125 * (100vw - 100.625rem) / 19.375);
+  }
+}
+@media (max-width: 100.625em) {
+  .vibe__block-dop {
+    width: inherit;
   }
 }
 .vibe__block-dop::after {
@@ -2660,20 +2673,162 @@ h2 {
   margin-top: auto;
 }
 
-.vibe__block-two {
-  width: 20.3125rem;
-}
-@supports (width: clamp( 14.375rem , 11.9375rem  +  12.1875vw , 26.5625rem )) {
-  .vibe__block-two {
-    width: clamp( 14.375rem , 11.9375rem  +  12.1875vw , 26.5625rem );
+@supports (width: clamp( 20.3125rem , 18.6677631579rem  +  6.5789473684vw , 26.5625rem )) {
+  .vibe__block-dop-two {
+    width: clamp( 20.3125rem , 18.6677631579rem  +  6.5789473684vw , 26.5625rem );
   }
 }
-@supports not (width: clamp( 14.375rem , 11.9375rem  +  12.1875vw , 26.5625rem )) {
-  .vibe__block-two {
-    width: calc(14.375rem + 12.1875 * (100vw - 20rem) / 100);
+@supports not (width: clamp( 20.3125rem , 18.6677631579rem  +  6.5789473684vw , 26.5625rem )) {
+  .vibe__block-dop-two {
+    width: calc(20.3125rem + 6.25 * (100vw - 25rem) / 95);
+  }
+}
+@media (max-width: 25em) {
+  .vibe__block-dop-two {
+    width: inherit;
   }
 }
 
+@supports (width: clamp( 20.3125rem , 18.6677631579rem  +  6.5789473684vw , 26.5625rem )) {
+  .vibe__block-two {
+    width: clamp( 20.3125rem , 18.6677631579rem  +  6.5789473684vw , 26.5625rem );
+  }
+}
+@supports not (width: clamp( 20.3125rem , 18.6677631579rem  +  6.5789473684vw , 26.5625rem )) {
+  .vibe__block-two {
+    width: calc(20.3125rem + 6.25 * (100vw - 25rem) / 95);
+  }
+}
+@media (max-width: 25em) {
+  .vibe__block-two {
+    width: inherit;
+  }
+}
+
+@media (max-width: 100.625em) {
+  @supports (width: clamp( 19.6875rem , 17.208161157rem  +  9.9173553719vw , 27.1875rem )) {
+    .vibe__block-dop {
+      width: clamp( 19.6875rem , 17.208161157rem  +  9.9173553719vw , 27.1875rem );
+    }
+  }
+  @supports not (width: clamp( 19.6875rem , 17.208161157rem  +  9.9173553719vw , 27.1875rem )) {
+    .vibe__block-dop {
+      width: calc(19.6875rem + 7.5 * (100vw - 25rem) / 75.625);
+    }
+  }
+}
+@media (max-width: 100.625em) and (min-width: 100.625em) {
+  .vibe__block-dop {
+    width: inherit;
+  }
+}
+@media (max-width: 100.625em) and (max-width: 25em) {
+  .vibe__block-dop {
+    width: inherit;
+  }
+}
+@media (max-width: 100.625em) {
+  @supports (width: clamp( 19.6875rem , 17.208161157rem  +  9.9173553719vw , 27.1875rem )) {
+    .vibe__block {
+      width: clamp( 19.6875rem , 17.208161157rem  +  9.9173553719vw , 27.1875rem );
+    }
+  }
+  @supports not (width: clamp( 19.6875rem , 17.208161157rem  +  9.9173553719vw , 27.1875rem )) {
+    .vibe__block {
+      width: calc(19.6875rem + 7.5 * (100vw - 25rem) / 75.625);
+    }
+  }
+}
+@media (max-width: 100.625em) and (min-width: 100.625em) {
+  .vibe__block {
+    width: inherit;
+  }
+}
+@media (max-width: 100.625em) and (max-width: 25em) {
+  .vibe__block {
+    width: inherit;
+  }
+}
+@media (max-width: 100.625em) {
+  @supports (width: clamp( 14.375rem , 12.4121900826rem  +  7.8512396694vw , 20.3125rem )) {
+    .vibe__block-dop-two {
+      width: clamp( 14.375rem , 12.4121900826rem  +  7.8512396694vw , 20.3125rem );
+    }
+  }
+  @supports not (width: clamp( 14.375rem , 12.4121900826rem  +  7.8512396694vw , 20.3125rem )) {
+    .vibe__block-dop-two {
+      width: calc(14.375rem + 5.9375 * (100vw - 25rem) / 75.625);
+    }
+  }
+}
+@media (max-width: 100.625em) and (min-width: 100.625em) {
+  .vibe__block-dop-two {
+    width: inherit;
+  }
+}
+@media (max-width: 100.625em) and (max-width: 25em) {
+  .vibe__block-dop-two {
+    width: inherit;
+  }
+}
+@media (max-width: 100.625em) {
+  @supports (width: clamp( 14.375rem , 12.4121900826rem  +  7.8512396694vw , 20.3125rem )) {
+    .vibe__block-two {
+      width: clamp( 14.375rem , 12.4121900826rem  +  7.8512396694vw , 20.3125rem );
+    }
+  }
+  @supports not (width: clamp( 14.375rem , 12.4121900826rem  +  7.8512396694vw , 20.3125rem )) {
+    .vibe__block-two {
+      width: calc(14.375rem + 5.9375 * (100vw - 25rem) / 75.625);
+    }
+  }
+}
+@media (max-width: 100.625em) and (min-width: 100.625em) {
+  .vibe__block-two {
+    width: inherit;
+  }
+}
+@media (max-width: 100.625em) and (max-width: 25em) {
+  .vibe__block-two {
+    width: inherit;
+  }
+}
+@supports (font-size: clamp( 0.875rem , 0.8295454545rem  +  0.2272727273vw , 1rem )) {
+  .menu__item a {
+    font-size: clamp( 0.875rem , 0.8295454545rem  +  0.2272727273vw , 1rem );
+  }
+}
+@supports not (font-size: clamp( 0.875rem , 0.8295454545rem  +  0.2272727273vw , 1rem )) {
+  .menu__item a {
+    font-size: calc(0.875rem + 0.125 * (100vw - 20rem) / 55);
+  }
+}
+
+@supports (font-size: clamp( 0.875rem , 0.8295454545rem  +  0.2272727273vw , 1rem )) {
+  .header .spollers__title {
+    font-size: clamp( 0.875rem , 0.8295454545rem  +  0.2272727273vw , 1rem );
+  }
+}
+@supports not (font-size: clamp( 0.875rem , 0.8295454545rem  +  0.2272727273vw , 1rem )) {
+  .header .spollers__title {
+    font-size: calc(0.875rem + 0.125 * (100vw - 20rem) / 55);
+  }
+}
+
+@media (max-width: 25em) {
+  .vibe__block-dop {
+    width: 315px;
+  }
+  .vibe__block {
+    width: 315px;
+  }
+  .vibe__block-dop-two {
+    width: 14.375rem;
+  }
+  .vibe__block-two {
+    width: 14.375rem;
+  }
+}
 .vibe__body {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -2682,7 +2837,7 @@ h2 {
       -ms-flex-align: center;
           align-items: center;
   padding: 0 10px;
-  padding-bottom: 20px;
+  padding-bottom: 12px;
   will-change: transform; /* Указывает браузеру, что будет происходить изменение свойства transform */
   -webkit-transition: -webkit-transform 0.85s ease-out;
   transition: -webkit-transform 0.85s ease-out;
@@ -2725,6 +2880,9 @@ h2 {
   }
   .vibe__container::-webkit-scrollbar {
     display: none;
+  }
+  .nas__cart {
+    margin: 0 auto;
   }
 }
 .center {
