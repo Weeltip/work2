@@ -3850,18 +3850,18 @@ button.swiper-pagination-bullet {
           justify-content: center;
 }
 
-.webp .main{ background-image: url(..//img/main-fon.webp); }
+.webp .main{ background-image: url(..//img/main-fon.png); }
 
-.webp .otsiv{ background-image: url(..//img/otsiv-main.webp); }
+.webp .otsiv{ background-image: url(..//img/otsiv-main.png); }
 
-.webp .otpravka{ background-image: url(..//img/otpr-main.webp); }
+.webp .otpravka{ background-image: url(..//img/otpr-main.jpg); }
 
-.webp .video__block{ background-image: url(..//img/video/1.webp); }
+.webp .video__block{ background-image: url(..//img/video/1.png); }
 
-.webp .video__block-two{ background-image: url(..//img/video/2.webp); }
+.webp .video__block-two{ background-image: url(..//img/video/2.png); }
 
-.webp .video__block-free{ background-image: url(..//img/video/3.webp); }
+.webp .video__block-free{ background-image: url(..//img/video/3.png); }
 
 @media (max-width: 41.5625em){
-  .webp .main{ background-image: url(..//img/main-main.webp); }
+  .webp .main{ background-image: url(..//img/main-main.png); }
 }
