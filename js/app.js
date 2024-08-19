@@ -4852,52 +4852,6 @@
     menuInit();
     spollers();
     pageNavigation();
-    const containers = document.querySelectorAll(".vibe");
-    containers.forEach((container => {
-        const body = container.querySelector(".vibe__body");
-        const vibeContainer = container.querySelector(".vibe__container");
-        const vibe = container;
-        let currentScrollPosition = 0;
-        let targetScrollPosition = 0;
-        let isMoving = false;
-        const lerp = (start, end, factor) => start + (end - start) * factor;
-        function animateScroll() {
-            if (isMoving) {
-                currentScrollPosition = lerp(currentScrollPosition, targetScrollPosition, .4);
-                body.style.transform = `translateX(${currentScrollPosition}px)`;
-                if (Math.abs(currentScrollPosition - targetScrollPosition) > .5) requestAnimationFrame(animateScroll); else isMoving = false;
-            }
-        }
-        vibeContainer.addEventListener("mousemove", (e => {
-            const containerWidth = vibeContainer.offsetWidth;
-            const vibeWidth = vibe.offsetWidth;
-            const bodyWidth = body.scrollWidth;
-            if (bodyWidth > vibeWidth) {
-                const vibeRect = vibe.getBoundingClientRect();
-                const mouseX = e.clientX - vibeRect.left;
-                const centerX = vibeWidth / 2;
-                const maxScroll = bodyWidth - vibeWidth;
-                const visibleRightEdge = Math.min(containerWidth / 2, (bodyWidth - vibeWidth) / 2);
-                const visibleLeftEdge = -Math.min(containerWidth / 2, (bodyWidth - vibeWidth) / 2);
-                const relativePosition = mouseX - centerX;
-                const scrollPercentage = relativePosition / (containerWidth / 2);
-                targetScrollPosition = -scrollPercentage * maxScroll;
-                targetScrollPosition = Math.max(Math.min(targetScrollPosition, maxScroll), -maxScroll);
-                targetScrollPosition = Math.min(Math.max(targetScrollPosition, visibleLeftEdge), visibleRightEdge);
-                if (!isMoving) {
-                    isMoving = true;
-                    animateScroll();
-                }
-            }
-        }));
-        vibeContainer.addEventListener("mouseleave", (() => {
-            targetScrollPosition = 0;
-            if (!isMoving) {
-                isMoving = true;
-                animateScroll();
-            }
-        }));
-    }));
     document.querySelectorAll(".select").forEach((select => {
         const title = select.querySelector(".select__title");
         const options = select.querySelector(".select__options");
