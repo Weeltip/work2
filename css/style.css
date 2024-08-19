@@ -576,7 +576,7 @@ h2 {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  max-width: 79.5rem;
+     max-width: 1700px;
   padding: 0 15px;
 }
 
@@ -2662,6 +2662,7 @@ h2 {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  max-width: 1400px;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
