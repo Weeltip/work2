@@ -4151,6 +4151,86 @@
             },
             on: {}
         });
+        new core(".comand__slider-two", {
+            modules: [ Navigation, Pagination, Autoplay ],
+            observer: true,
+            observeParents: true,
+            slidesPerView: 3,
+            spaceBetween: 0,
+            autoHeight: true,
+            speed: 800,
+            centeredSlides: true,
+            initialSlide: 1,
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true
+            },
+            breakpoints: {
+                320: {
+                    slidesPerView: 1,
+                    spaceBetween: 20,
+                    autoHeight: true
+                },
+                768: {
+                    slidesPerView: 1,
+                    spaceBetween: 0
+                },
+                1100: {
+                    slidesPerView: 3,
+                    spaceBetween: 0
+                }
+            },
+            on: {}
+        });
+        new core(".vid__slider", {
+            modules: [ Navigation, Pagination, Autoplay ],
+            observer: true,
+            observeParents: true,
+            slidesPerView: 6,
+            spaceBetween: 0,
+            autoHeight: true,
+            speed: 800,
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: false
+            },
+            breakpoints: {
+                320: {
+                    slidesPerView: 2,
+                    spaceBetween: 0,
+                    autoHeight: true
+                },
+                768: {
+                    slidesPerView: 3,
+                    spaceBetween: 0,
+                    pagination: {
+                        el: ".swiper-pagination",
+                        clickable: true
+                    }
+                },
+                870: {
+                    slidesPerView: 4,
+                    spaceBetween: 0,
+                    pagination: {
+                        el: ".swiper-pagination",
+                        clickable: true
+                    }
+                },
+                1110: {
+                    slidesPerView: 4,
+                    spaceBetween: 0,
+                    pagination: {
+                        el: ".swiper-pagination",
+                        clickable: true
+                    }
+                },
+                1250: {
+                    slidesPerView: 6,
+                    spaceBetween: 0
+                }
+            },
+            on: {}
+        });
         new core(".otsiv__slider", {
             modules: [ Navigation, Pagination, Autoplay ],
             observer: true,
@@ -4261,78 +4341,6 @@
                 1180: {
                     slidesPerView: 3,
                     spaceBetween: 0
-                }
-            },
-            on: {}
-        });
-        new core(".comand__slider-two", {
-            modules: [ Navigation, Pagination, Autoplay ],
-            observer: true,
-            observeParents: true,
-            slidesPerView: 3,
-            spaceBetween: 0,
-            autoHeight: true,
-            speed: 800,
-            centeredSlides: true,
-            initialSlide: 1,
-            pagination: {
-                el: ".swiper-pagination",
-                clickable: true
-            },
-            breakpoints: {
-                320: {
-                    slidesPerView: 1,
-                    spaceBetween: 20,
-                    autoHeight: true
-                },
-                768: {
-                    slidesPerView: 1,
-                    spaceBetween: 0
-                },
-                1100: {
-                    slidesPerView: 3,
-                    spaceBetween: 0
-                }
-            },
-            on: {}
-        });
-        new core(".vid__slider", {
-            modules: [ Navigation, Pagination, Autoplay ],
-            observer: true,
-            observeParents: true,
-            slidesPerView: 6,
-            spaceBetween: 0,
-            autoHeight: true,
-            speed: 800,
-            pagination: {
-                el: ".swiper-pagination",
-                clickable: false
-            },
-            navigation: {
-                prevEl: ".swiper-button-prev",
-                nextEl: ".swiper-button-next"
-            },
-            breakpoints: {
-                320: {
-                    slidesPerView: 2,
-                    spaceBetween: 20,
-                    autoHeight: true
-                },
-                768: {
-                    slidesPerView: 3,
-                    spaceBetween: 20,
-                    pagination: {
-                        el: ".swiper-pagination",
-                        clickable: true
-                    }
-                },
-                1180: {
-                    slidesPerView: 5,
-                    spaceBetween: 20
-                },
-                1260: {
-                    slidesPerView: 6,
-                    spaceBetween: 20
                 }
             },
             on: {}
@@ -4844,64 +4852,50 @@
     menuInit();
     spollers();
     pageNavigation();
-const containers = document.querySelectorAll(".vibe");
-
-containers.forEach(container => {
-    const body = container.querySelector(".vibe__body");
-    const vibeContainer = container.querySelector(".vibe__container");
-    let currentScrollPosition = 0;
-    let targetScrollPosition = 0;
-    let isMoving = false;
-
-    const lerp = (start, end, factor) => {
-        return start + (end - start) * factor;
-    };
-
-    function animateScroll() {
-        if (isMoving) {
-            currentScrollPosition = lerp(currentScrollPosition, targetScrollPosition, 0.4); // Фактор 0.1 можно регулировать для изменения плавности
-            body.style.transform = `translateX(${currentScrollPosition}px)`;
-
-            if (Math.abs(currentScrollPosition - targetScrollPosition) > 0.5) {
-                requestAnimationFrame(animateScroll);
-            } else {
-                isMoving = false;  // Останавливаем анимацию, когда приближаемся к целевой позиции
+    const containers = document.querySelectorAll(".vibe");
+    containers.forEach((container => {
+        const body = container.querySelector(".vibe__body");
+        const vibeContainer = container.querySelector(".vibe__container");
+        let currentScrollPosition = 0;
+        let targetScrollPosition = 0;
+        let isMoving = false;
+        const lerp = (start, end, factor) => start + (end - start) * factor;
+        function animateScroll() {
+            if (isMoving) {
+                currentScrollPosition = lerp(currentScrollPosition, targetScrollPosition, .4);
+                body.style.transform = `translateX(${currentScrollPosition}px)`;
+                if (Math.abs(currentScrollPosition - targetScrollPosition) > .5) requestAnimationFrame(animateScroll); else isMoving = false;
             }
         }
-    }
-
-    vibeContainer.addEventListener("mousemove", e => {
-        const containerWidth = vibeContainer.offsetWidth;
-        const bodyWidth = body.scrollWidth;
-        
-        if (bodyWidth > containerWidth) {
-            const vibeRect = vibeContainer.getBoundingClientRect();
-            const mouseX = e.clientX - vibeRect.left;
-            const centerX = containerWidth / 2;
-            const maxScroll = bodyWidth - containerWidth;
-            const visibleRightEdge = Math.min(containerWidth / 2, (bodyWidth - containerWidth) / 2);
-            const visibleLeftEdge = -Math.min(containerWidth / 2, (bodyWidth - containerWidth) / 2);
-            const relativePosition = mouseX - centerX;
-            const scrollPercentage = relativePosition / (containerWidth / 2);
-            targetScrollPosition = -scrollPercentage * maxScroll;
-            targetScrollPosition = Math.max(Math.min(targetScrollPosition, maxScroll), -maxScroll);
-            targetScrollPosition = Math.min(Math.max(targetScrollPosition, visibleLeftEdge), visibleRightEdge);
-
+        vibeContainer.addEventListener("mousemove", (e => {
+            const containerWidth = vibeContainer.offsetWidth;
+            const bodyWidth = body.scrollWidth;
+            if (bodyWidth > containerWidth) {
+                const vibeRect = vibeContainer.getBoundingClientRect();
+                const mouseX = e.clientX - vibeRect.left;
+                const centerX = containerWidth / 2;
+                const maxScroll = bodyWidth - containerWidth;
+                const visibleRightEdge = Math.min(containerWidth / 2, (bodyWidth - containerWidth) / 2);
+                const visibleLeftEdge = -Math.min(containerWidth / 2, (bodyWidth - containerWidth) / 2);
+                const relativePosition = mouseX - centerX;
+                const scrollPercentage = relativePosition / (containerWidth / 2);
+                targetScrollPosition = -scrollPercentage * maxScroll;
+                targetScrollPosition = Math.max(Math.min(targetScrollPosition, maxScroll), -maxScroll);
+                targetScrollPosition = Math.min(Math.max(targetScrollPosition, visibleLeftEdge), visibleRightEdge);
+                if (!isMoving) {
+                    isMoving = true;
+                    animateScroll();
+                }
+            }
+        }));
+        vibeContainer.addEventListener("mouseleave", (() => {
+            targetScrollPosition = 0;
             if (!isMoving) {
                 isMoving = true;
                 animateScroll();
             }
-        }
-    });
-
-    vibeContainer.addEventListener("mouseleave", () => {
-        targetScrollPosition = 0; // Возвращаем на исходную позицию
-        if (!isMoving) {
-            isMoving = true;
-            animateScroll();
-        }
-    });
-});
+        }));
+    }));
     document.querySelectorAll(".select").forEach((select => {
         const title = select.querySelector(".select__title");
         const options = select.querySelector(".select__options");
