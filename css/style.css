@@ -2642,6 +2642,8 @@ h2 {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
+  overflow: hidden;
+  max-width:1440px;
       -ms-flex-align: center;
           align-items: center;
   padding: 0 10px;
