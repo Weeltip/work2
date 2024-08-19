@@ -4856,6 +4856,7 @@
     containers.forEach((container => {
         const body = container.querySelector(".vibe__body");
         const vibeContainer = container.querySelector(".vibe__container");
+        const vibe = container;
         let currentScrollPosition = 0;
         let targetScrollPosition = 0;
         let isMoving = false;
@@ -4869,14 +4870,15 @@
         }
         vibeContainer.addEventListener("mousemove", (e => {
             const containerWidth = vibeContainer.offsetWidth;
+            const vibeWidth = vibe.offsetWidth;
             const bodyWidth = body.scrollWidth;
-            if (bodyWidth > containerWidth) {
-                const vibeRect = vibeContainer.getBoundingClientRect();
+            if (bodyWidth > vibeWidth) {
+                const vibeRect = vibe.getBoundingClientRect();
                 const mouseX = e.clientX - vibeRect.left;
-                const centerX = containerWidth / 2;
-                const maxScroll = bodyWidth - containerWidth;
-                const visibleRightEdge = Math.min(containerWidth / 2, (bodyWidth - containerWidth) / 2);
-                const visibleLeftEdge = -Math.min(containerWidth / 2, (bodyWidth - containerWidth) / 2);
+                const centerX = vibeWidth / 2;
+                const maxScroll = bodyWidth - vibeWidth;
+                const visibleRightEdge = Math.min(containerWidth / 2, (bodyWidth - vibeWidth) / 2);
+                const visibleLeftEdge = -Math.min(containerWidth / 2, (bodyWidth - vibeWidth) / 2);
                 const relativePosition = mouseX - centerX;
                 const scrollPercentage = relativePosition / (containerWidth / 2);
                 targetScrollPosition = -scrollPercentage * maxScroll;

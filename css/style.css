@@ -2523,14 +2523,14 @@ h2 {
   height: 22.5rem;
   position: relative;
 }
-@supports (width: clamp( 20.3125rem , 17.7897727273rem  +  12.6136363636vw , 27.25rem )) {
+@supports (width: clamp( 20.3125rem , 17.675rem  +  13.1875vw , 33.5rem )) {
   .vibe__block {
-    width: clamp( 20.3125rem , 17.7897727273rem  +  12.6136363636vw , 27.25rem );
+    width: clamp( 20.3125rem , 17.675rem  +  13.1875vw , 33.5rem );
   }
 }
-@supports not (width: clamp( 20.3125rem , 17.7897727273rem  +  12.6136363636vw , 27.25rem )) {
+@supports not (width: clamp( 20.3125rem , 17.675rem  +  13.1875vw , 33.5rem )) {
   .vibe__block {
-    width: calc(20.3125rem + 6.9375 * (100vw - 20rem) / 55);
+    width: calc(20.3125rem + 13.1875 * (100vw - 20rem) / 100);
   }
 }
 .vibe__block button {
@@ -2587,14 +2587,14 @@ h2 {
           flex-direction: column;
   padding: 30px 15px;
 }
-@supports (width: clamp( 20.3125rem , 17.7897727273rem  +  12.6136363636vw , 27.25rem )) {
+@supports (width: clamp( 20.3125rem , 17.675rem  +  13.1875vw , 33.5rem )) {
   .vibe__block-dop {
-    width: clamp( 20.3125rem , 17.7897727273rem  +  12.6136363636vw , 27.25rem );
+    width: clamp( 20.3125rem , 17.675rem  +  13.1875vw , 33.5rem );
   }
 }
-@supports not (width: clamp( 20.3125rem , 17.7897727273rem  +  12.6136363636vw , 27.25rem )) {
+@supports not (width: clamp( 20.3125rem , 17.675rem  +  13.1875vw , 33.5rem )) {
   .vibe__block-dop {
-    width: calc(20.3125rem + 6.9375 * (100vw - 20rem) / 55);
+    width: calc(20.3125rem + 13.1875 * (100vw - 20rem) / 100);
   }
 }
 .vibe__block-dop::after {
@@ -2663,14 +2663,14 @@ h2 {
 .vibe__block-two {
   width: 20.3125rem;
 }
-@supports (width: clamp( 14.375rem , 12.2159090909rem  +  10.7954545455vw , 20.3125rem )) {
+@supports (width: clamp( 14.375rem , 11.9375rem  +  12.1875vw , 26.5625rem )) {
   .vibe__block-two {
-    width: clamp( 14.375rem , 12.2159090909rem  +  10.7954545455vw , 20.3125rem );
+    width: clamp( 14.375rem , 11.9375rem  +  12.1875vw , 26.5625rem );
   }
 }
-@supports not (width: clamp( 14.375rem , 12.2159090909rem  +  10.7954545455vw , 20.3125rem )) {
+@supports not (width: clamp( 14.375rem , 11.9375rem  +  12.1875vw , 26.5625rem )) {
   .vibe__block-two {
-    width: calc(14.375rem + 5.9375 * (100vw - 20rem) / 55);
+    width: calc(14.375rem + 12.1875 * (100vw - 20rem) / 100);
   }
 }
 
@@ -2706,8 +2706,6 @@ h2 {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  overflow: hidden;
-  max-width: 90rem;
 }
 
 @media (max-width: 61.99875em) {
