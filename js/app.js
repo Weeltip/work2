@@ -4887,10 +4887,8 @@
     }));
     window.addEventListener("load", (function() {
         const video = document.querySelector(".background-video");
-        setTimeout((function() {
-            if (video.readyState >= 3) video.classList.add("loaded"); else video.addEventListener("canplaythrough", (function() {
-                video.classList.add("loaded");
-            }));
-        }), 12e3);
+        if (video.readyState >= 3) video.classList.add("loaded"); else video.addEventListener("canplaythrough", (function() {
+            video.classList.add("loaded");
+        }));
     }));
 })();

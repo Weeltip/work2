@@ -6,10 +6,10 @@
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
 	<!-- <style>body{opacity: 0;}</style> -->
-	<link rel="stylesheet" href="css/style.css?_v=2024081917205">
+	<link rel="stylesheet" href="css/style.css?_v=20240820191209">
 	<link rel="shortcut icon" href="favicon.ico">
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
-	<link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css?_v=20240819172705" rel="stylesheet">
+	<link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css?_v=20240820191209" rel="stylesheet">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
@@ -68,7 +68,7 @@
 				<div class="header-ic__hd"></div>
 				<div data-da=".menu__body,992,2" class="header__col">
 					<a href="tel:+79275116070" class="header__tel">+7(927)511-60-70</a>
-					<button type="submit" class="button btn2">Заказать звонок</button>
+					<button type="submit" data-popup="#popup" class="button btn2">Заказать звонок</button>
 					<a href="#" data-da=".header-ic__hd,992,2"><i class="_icon-vk"></i></a>
 					
 				</div>
@@ -131,7 +131,7 @@
 						</div>						
 					 </div>
 			</section>
-			<section class="vibe vibe-hd" >
+			<section class="vibe " >
 				<!-- Оболочка слайдера -->
 				 <div class="vibe__container" >
 					<div class="vibe__body">
@@ -273,7 +273,7 @@
 								</span>
 								<p>Принимаю условия политики конфиденциальности</p>
 							  </label>
-							<button data-popup="#popup" type="submit" class="button">Отправить заявку</button>
+							<button data-popup="#popup2" type="submit" class="button">Отправить заявку</button>
 						</form>
 					</div>
 				</div>
@@ -330,7 +330,7 @@
 				<div class="vopros__container">
 					<div class="vopros__cart">
 						<h3 class="h3-white">Остались вопросы?</h3>
-						<button type="submit" class="button btn2">Получить консультацию</button>
+						<button type="submit" data-popup="#popup" class="button btn2">Получить консультацию</button>
 					</div>
 				</div>
 			</section>
@@ -404,20 +404,20 @@
 					<button type="submit" data-close class="close-button">
 						<i class="ri-close-line"></i>
 					</button>
+					<h3>Вы можете оставить заявку на обратный звонок</h3>
 					<form>
-						<h3>Вы можете оставить заявку на обратный звонок</h3>
 						<label for="tel">Имя</label>
 						<input type="name" name="form[name]" placeholder="Введите ваше имя" class="input">
 
 						<label for="tel">Телефон</label>
 						<input type="tel" name="form[tel]" placeholder="Введите ваш номер телефона" class="input">
 
-						<label class="checkbox checkbox__block">
+						<label class="checkbox checkbox__block popup__checkbox">
 							<input type="checkbox" class="checkbox__input">
 							<span class="checkbox__custom">
 								<i class="ri-check-line"></i>
 							</span>
-							<p>Принимаю условия политики конфиденциальности</p>
+							<p class="popup__text">Принимаю условия политики конфиденциальности</p>
 						</label>
 						<button data-popup="#popup2" type="submit" class="button">Отправить заявку</button>
 					</form>
@@ -438,7 +438,7 @@
 			</div>
 		</div>
 	</div>
-	<script src="js/app.min.js?_v=20240819172705"></script>
+	<script src="js/app.min.js?_v=20240820191209"></script>
 </body>
 
 </html>
