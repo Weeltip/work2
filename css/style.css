@@ -821,11 +821,10 @@ top: 0;
 
 }
 .vibe-two{
-  margin-top: -20px;
+  margin-top: -40px;
+  padding-top: 68px;
 }
-.vibe-two .vibe__container{
-  padding-bottom: 0;
-}
+
 .vibe__container{
   padding-bottom: 20px;
 }
