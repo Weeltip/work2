@@ -820,8 +820,14 @@ top: 0;
   padding-top: 48px;
 
 }
-.vibe__container .vibe__button{
-  
+.vibe-two{
+  margin-top: -20px;
+}
+.vibe-two .vibe__container{
+  padding-bottom: 0;
+}
+.vibe__container{
+  padding-bottom: 20px;
 }
 .vibe__block:hover .vibe__text{
   opacity: 1;
