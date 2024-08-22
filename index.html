@@ -7,7 +7,7 @@
 	<meta name="format-detection" content="telephone=no">
 	<!-- <style>body{opacity: 0;}</style> -->
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"> 
-	<link rel="stylesheet" href="./css/style.css">
+	<link rel="stylesheet" href="./css/style.css?_v=202234333323423423433234234">
 	<link rel="shortcut icon" href="favicon.ico">
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
 	<link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css?_v=20240819090840" rel="stylesheet">
@@ -47,7 +47,7 @@
 				<a href="" class="logo"><img src="img/logo.png" alt=""></a>
 				<div class="header__info">
 					<a href="" class="header__tel" data-da=".nav,991">+7(927)511-60-70</a>
-					<button type="submit" class="button coffe-btn" data-da=".nav,991">Заказать звонок</button>
+					<button type="submit"  class="button coffe-btn" data-da=".nav,991" data-popup="#popup">Заказать звонок</button>
 					<a href="" class="_icon-vk"></a>
 				</div>
 				<button type="submit" class="button-menu__open icon-menu"><span></span></button>
@@ -313,7 +313,7 @@
 				<section class="banner">
 					<div class="banner__container">
 						<h3>Остались вопросы?</h3>
-						<button type="submit" class="button coffe-btn">Получить консультацию</button>
+						<button type="submit" class="button coffe-btn" data-popup="#popup">Получить консультацию</button>
 					</div>
 				</section>
 			</main>
@@ -356,49 +356,55 @@
 			</div>
 		</footer>
 	</div>
-	<!-- <div id="popup" aria-hidden="true" class="popup">
+
+	<!-- Первый попап с формой -->
+	<div id="popup" aria-hidden="true" class="popup">
 		<div class="popup__wrapper">
 			<div class="popup__content">
 				<div class="otpravka__form">
-					<button type="submit" data-close class="close-button">
+					<!-- Кнопка для закрытия первого попапа -->
+					<button type="button" data-close class="close-button">
 						<i class="ri-close-line"></i>
 					</button>
-					<form>
-						<h3>Вы можете оставить заявку на обратный звонок</h3>
-						<label for="tel">Имя</label>
-						<input type="name" name="form[name]" placeholder="Введите ваше имя" class="input">
-
+					<h3>Вы можете оставить заявку на обратный звонок</h3>
+					<form id="myForm" method="post">
+						<label for="name">Имя</label>
+						<input type="text" name="form[name]" placeholder="Введите ваше имя" class="input">
+	
 						<label for="tel">Телефон</label>
 						<input type="tel" name="form[tel]" placeholder="Введите ваш номер телефона" class="input">
-
-						<label class="checkbox checkbox__block">
+	
+						<label class="checkbox checkbox__block popup__checkbox">
 							<input type="checkbox" class="checkbox__input">
 							<span class="checkbox__custom">
 								<i class="ri-check-line"></i>
 							</span>
-							<p>Принимаю условия политики конфиденциальности</p>
+							<p class="popup__text">Принимаю условия политики конфиденциальности</p>
 						</label>
-						<button data-popup="#popup2" type="submit" class="button">Отправить заявку</button>
+						
+						<button type="submit" class="button">Отправить заявку</button>
 					</form>
 				</div>
 			</div>
 		</div>
 	</div>
-
+	
+	<!-- Второй попап с сообщением об успешной отправке -->
 	<div id="popup2" aria-hidden="true" class="popup">
 		<div class="popup__wrapper">
 			<div class="popup__content">
 				<div class="otpravka__form otpravka__form-two">
-					<button type="submit" data-close class="close-button">
+					<!-- Кнопка для закрытия второго попапа -->
+					<button type="button" data-close class="close-button">
 						<i class="ri-close-line"></i>
 					</button>
-					<p>Спасибо! Мы получили заявку и свяжемся с вами в ближайшее время</p>
+					<p>Спасибо! Мы получили заявку и свяжемся с вами в ближайшее время.</p>
 				</div>
 			</div>
 		</div>
-	</div> -->
+	</div>
 	<script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script> 
-	<script src="./js/app.js"></script>
+	<script src="./js/app.js?_v=4493823233423343333333323244333233244"></script>
 </body>
 
 </html>

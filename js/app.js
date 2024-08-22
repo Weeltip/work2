@@ -1,81 +1,42 @@
-// import Swiper, { Navigation, Pagination, Autoplay } from 'swiper';
-// import 'swiper/css';
-// import 'swiper/css/navigation';
-// import 'swiper/css/pagination';
+const openButton = document.querySelector('.button-menu__open');
+const nav = document.querySelector('.nav');
+const icon = document.querySelector('.icon-menu')
 
-// // Инициализация слайдера
-// window.addEventListener("load", function () {
-// 	if (document.querySelector('.swiper-container')) {
-// 		new Swiper('.swiper-container', {
-// 			modules: [Navigation, Pagination, Autoplay],
-// 			observer: true,
-// 			observeParents: true,
-// 			slidesPerView: 3,
-// 			spaceBetween: 0,
-// 			autoHeight: true,
-// 			speed: 800,
-// 			centeredSlides: true,
-// 			initialSlide: 1,  // Начинаем слайдер со второго слайда
+// Добавляем класс nav-active при нажатии на кнопку открытия
+openButton.addEventListener('click', () => {
+  nav.classList.toggle('nav-active');
+  icon.classList.toggle('icon-active');
+});
 
-// 			// Пагинация
-// 			pagination: {
-// 				el: '.swiper-pagination',
-// 				clickable: true,
-// 			},
 
-// 			// Кнопки навигации
-// 			navigation: {
-// 				nextEl: '.swiper-button-next',
-// 				prevEl: '.swiper-button-prev',
-// 			},
 
-// 			// Брейкпоинты
-// 			breakpoints: {
-// 				320: {
-// 					slidesPerView: 1,
-// 					spaceBetween: 20,
-// 					autoHeight: true,
-// 				},
-// 				768: {
-// 					slidesPerView: 1,
-// 					spaceBetween: 0,
-// 				},
-// 				1100: {
-// 					slidesPerView: 3,
-// 					spaceBetween: 0,
-// 				},
-// 			},
-// 		});
-// 	}
-// });
 const swiper = new Swiper('.comand__slider', {
-  loop: true,
-   // Центрируем слайд
-  speed: 1500, // Делаем скорость переходов плавнее (800ms)
-  
+  // loop: true,
+  speed: 1500,
   pagination: {
-      el: '.swiper-pagination',
-      clickable: true,
+    el: '.swiper-pagination',
+    clickable: true,
   },
   navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
   },
   slidesPerView: 3,
   spaceBetween: 170,
-  
-  // Включаем слайдер для экранов до 1320px
   breakpoints: {
-      0: {
-          enabled: true, 
-          centeredSlides: true,
-          spaceBetween: 20,
-          slidesPerView: 1,// Включаем слайдер для экранов до 1320px
-      },
-      1330: {
-        enabled: false, // Отключаем слайдер для экранов больше 1320px
+    0: {
+      centeredSlides: true,
+      spaceBetween: 20,
+      slidesPerView: 1,
     },
-  }
+    1330: {
+      slidesPerView: 3,
+      spaceBetween: 170,
+    },
+  },
+  touchEventsTarget: 'container', // Привязываем события касания к контейнеру
+  touchRatio: 1, // Устанавливаем коэффициент для лучшего управления
+  simulateTouch: true,
 });
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -266,16 +227,130 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
+  document.querySelectorAll('.select').forEach(select => {
+    const title = select.querySelector('.select__title');
+    const options = select.querySelector('.select__options');
+    const optionItems = options.querySelectorAll('.select__option');
+    
+    // Открытие и закрытие списка опций при клике на заголовок
+    title.addEventListener('click', () => {
+      select.classList.toggle('_select-open');
+    });
+    
+    // Выбор опции
+    optionItems.forEach(option => {
+      option.addEventListener('click', () => {
+      const value = option.dataset.value;
+      const text = option.textContent;
+      
+      title.textContent = text; // Обновляем заголовок
+      select.classList.remove('_select-open'); // Закрываем список опций
+    
+      // Здесь можно выполнить дополнительные действия, например, обновить скрытое поле формы
+      console.log(`Выбрано значение: ${value}`);
+      });
+    });
+    
+    // Закрытие списка при клике вне селекта
+    document.addEventListener('click', (e) => {
+      if (!select.contains(e.target)) {
+      select.classList.remove('_select-open');
+      }
+    });
+    });
+  
+
+    document.addEventListener("DOMContentLoaded", function () {
+      const form = document.querySelector('#popup form');
+  
+      // Обработчик отправки формы
+      form.addEventListener('submit', function (event) {
+          event.preventDefault(); // Отключаем стандартное поведение формы (перезагрузка)
+  
+          // Собираем данные формы
+          const formData = new FormData(form);
+  
+          // Имитация отправки данных через AJAX (замените на реальный сервер)
+          fetch('https://example.com/submit', { // Замените URL на свой сервер
+              method: 'POST',
+              body: formData
+          }).then(response => response.json())
+            .then(data => {
+                console.log('Успешная отправка:', data);
+  
+                // Закрываем первый попап
+                closePopup(document.querySelector('#popup'));
+  
+                // Открываем второй попап после успешной отправки
+                openPopup(document.querySelector('#popup2'));
+            }).catch(error => {
+                console.error('Ошибка при отправке:', error);
+            });
+      });
+  
+      // Функция для открытия попапа и блокировки скролла
+      function openPopup(popup) {
+          popup.setAttribute('aria-hidden', 'false');
+          popup.classList.add('popup_show');
+          document.body.classList.add('no-scroll');
+      }
+  
+      // Функция для закрытия попапа и разблокировки скролла
+      function closePopup(popup) {
+          popup.setAttribute('aria-hidden', 'true');
+          popup.classList.remove('popup_show');
+          document.body.classList.remove('no-scroll');
+      }
+  
+      // Открытие попапа при нажатии на кнопки
+      document.querySelectorAll('[data-popup]').forEach(button => {
+          button.addEventListener('click', function () {
+              const popupId = this.getAttribute('data-popup');
+              const popup = document.querySelector(popupId);
+              openPopup(popup);
+          });
+      });
+  
+      // Закрытие попапа при нажатии на кнопки закрытия
+      document.querySelectorAll('[data-close]').forEach(button => {
+          button.addEventListener('click', function () {
+              const popup = this.closest('.popup');
+              closePopup(popup);
+          });
+      });
+  
+      // Закрытие попапа при клике вне контента
+      document.querySelectorAll('.popup').forEach(popup => {
+          popup.addEventListener('click', function (event) {
+              if (!event.target.closest('.popup__content')) {
+                  closePopup(popup);
+              }
+          });
+      });
+  });
 
 
-  const openButton = document.querySelector('.button-menu__open');
-const nav = document.querySelector('.nav');
-const icon = document.querySelector('.icon-menu')
 
-// Добавляем класс nav-active при нажатии на кнопку открытия
-openButton.addEventListener('click', () => {
-  nav.classList.toggle('nav-active');
-  icon.classList.toggle('icon-active');
+
+  document.getElementById('myForm').addEventListener('submit', function(event) {
+    // Отменяем стандартное поведение отправки формы
+    event.preventDefault();
+    
+    // Получаем данные формы
+    var formData = new FormData(this);
+    
+    // Отправляем данные с помощью Fetch API или другого метода
+    fetch('/your-endpoint-url', {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+        // Обработка ответа
+        console.log('Success:', data);
+        // Вы можете добавить здесь код для отображения сообщений, очистки формы и т.д.
+    })
+    .catch((error) => {
+        console.error('Error:', error);
+    });
 });
-
-

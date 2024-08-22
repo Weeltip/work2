@@ -1465,8 +1465,131 @@ footer{
 
 
 
+.no-scroll {
+  overflow: hidden;
+}
+
+.popup {
+	position: fixed;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	background: none;
+	width: 100%;
+  transition: all 0.8s ease 0s;
+	display: block;
+	padding: 30px 10px;
+	visibility: hidden;
+	pointer-events: none;
+}
+.popup_show {
+	z-index: 150;
+	visibility: visible;
+  background-color: rgba(0, 0, 0, 0.5);
+	overflow: auto;
+	pointer-events: auto;
+}
+.popup_show .popup__content {
+	visibility: visible;
+	transform: scale(1);
+}
+.popup__wrapper {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	min-height: 100%;
+	flex: 1 1 auto;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.popup__content {
+	visibility: hidden;
+	transform: scale(0);
+	transition: transform 0.3s ease 0s;
+}
+.popup__content .lock{
+  visibility: visible;
+}
+.popup__content .otpravka__form{
+	width: 813px;
+}
+  .popup__content .otpravka__form	h3{
+		font-size: 36px;
+		line-height: 44px;
+	}
+  .popup__content .otpravka__form	form{
+		width: 395px;
+		margin: 0 auto;
+	}
 
 
+.popup__content .otpravka__form form label{
+	width: 426px;
+}
+.popup .popup__close{
+	position: absolute;
+	outline: none;
+
+		right: 1rem;
+		top:1rem;
+
+}
+.popup input {
+  margin-bottom: 16px;
+  padding: 15px 18px;
+}
+.popup__content .otpravka__form{
+	margin-top: 0;
+	padding: 51px 46px 32px 46px;
+	margin-bottom: 0;
+}
+
+  .otpravka__form	h3{
+		text-align: center;
+		font-size: 18px;
+		line-height: 22px;
+		font-weight: 700;
+		margin-bottom: 16px;
+	}
+
+.close-button{
+	position: absolute;
+  top: 0.5rem;
+  right: 1.3rem;
+	outline: none;
+}
+  .close-button	i{
+		
+		font-size: 30px;
+  }
+  .close-button	i::before{
+			color: #000;
+  }
+form p.popup__text{
+		text-align: center;
+		font-size: 14px;
+		width: 100%;
+		line-height: 17px;
+}
+form .popup__checkbox{
+  margin-left: -14px;
+  margin-top: 0;
+
+}
+.otpravka__form-two p{
+	text-align: center;
+	width: 100%;
+	max-width: 464px;
+	margin: 0 auto;
+	line-height: 20px;
+	color: #000000;
+}
+.popup__content .otpravka__form-two{
+	width: 593px;
+}
 
 
 
@@ -1552,3 +1675,43 @@ footer{
 		
 	
 }
+
+
+
+
+
+@media (max-width: 991px) {
+  .popup__content .otpravka__form form{
+    width: 312px;
+  }
+  .popup__content .otpravka__form{
+    padding: 51px 42px 32px 42px;
+    width: 396px;
+  }
+  .popup form p.popup__text{
+    font-size: 10px;
+  }
+  .popup .checkbox__block{
+    gap: 9px;
+
+  }
+  .popup__content .otpravka__form form label{
+    width: 311px;
+  }
+  .popup input {
+    margin-bottom: 11px;
+    padding: 14px;
+  }
+  .close-button {
+    right: 0.8rem;
+  }
+  .popup .checkbox__custom{
+    width: 16px;
+    height: 16px;
+  }
+  .popup__content .otpravka__form h3{
+    font-size: 18px;
+    line-height: 22px;
+  }  
+}
+
