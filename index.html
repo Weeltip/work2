@@ -6,7 +6,8 @@
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
 	<!-- <style>body{opacity: 0;}</style> -->
-	<link rel="stylesheet" href="css/style.css?_v=999323422342342344308">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"> 
+	<link rel="stylesheet" href="./css/style.css">
 	<link rel="shortcut icon" href="favicon.ico">
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
 	<link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css?_v=20240819090840" rel="stylesheet">
@@ -17,7 +18,8 @@
 	<div class="wrapper">
 		<header>
 			<div class="header__container">
-				<nav>
+				<nav class="nav">
+					<!-- <button type="submit" class="button-menu__close icon-menu"></button> -->
 					<ul>
 						<div class="header__spollers">
 							<button ><a href="#" class="spoller__a _icon-arrow">Услуги</a></button>
@@ -44,10 +46,11 @@
 				</nav>
 				<a href="" class="logo"><img src="img/logo.png" alt=""></a>
 				<div class="header__info">
-					<a href="">+7(927)511-60-70</a>
-					<button type="submit" class="button coffe-btn">Заказать звонок</button>
+					<a href="" class="header__tel" data-da=".nav,991">+7(927)511-60-70</a>
+					<button type="submit" class="button coffe-btn" data-da=".nav,991">Заказать звонок</button>
 					<a href="" class="_icon-vk"></a>
 				</div>
+				<button type="submit" class="button-menu__open icon-menu"><span></span></button>
 			</div>
 		</header>
 			<main>
@@ -247,7 +250,7 @@
 									  <div class="select__option" data-value="3">Опция 3</div>
 									</div>
 								  </div>
-								<label class="checkbox checkbox__block">
+								<label class="checkbox checkbox__block checkbox__hd">
 									<input type="checkbox" class="checkbox__input">
 									<span class="checkbox__custom">
 										<i class="ri-check-line"></i>
@@ -265,9 +268,9 @@
 						<h6 class="span center">Немного о нас</h6>
 						<h2 class="center">Наша команда</h2>
 						<!-- Оболочка слайдера -->
-						<div class="comand__slider swiper">
+						<div class="comand__slider   ">
 							<!-- Двигающееся часть слайдера -->
-							<div class="comand__wrapper swiper-wrapper">
+							<div class="swiper-wrapper">
 								<!-- Слайд -->
 								<div class="comand__slide swiper-slide">
 									<div class="comand__block">
@@ -316,10 +319,10 @@
 			</main>
 		<footer>
 			<div class="footer__container">
-				<a href="" class="footer__logo"><img src="img/footer-logo.png" alt=""></a>
-				<nav>
+				<a href="" class="footer__logo" data-da=".footer__nav,1120"><img src="img/footer-logo.png" alt=""></a>
+				<nav class="footer__nav">
 					<ul>
-						<div class="header__spollers">
+						<div class="header__spollers header__spollers-hd">
 							<button ><a href="#" class="spoller__a _icon-arrow">Услуги</a></button>
 							<div class="header__body">
 								<a href="#">Гендер пати</a>
@@ -328,7 +331,7 @@
 								<a href="">Свидание на крыше</a>								
 							</div>
 						</div>
-						<div class="header__spollers">
+						<div class="header__spollers header__spollers-hd">
 							<button ><a href="#" class="spoller__a _icon-arrow">Мероприятия</a></button>
 							<div class="header__body">
 								<a href="#">Гендер пати</a>
@@ -337,9 +340,12 @@
 								<a href="">Свидание на крыше</a>								
 							</div>
 						</div>
-						<a href="">Фото</a>
-						<a href="">Франшиза</a>
-						<a href="">Контакты</a>
+						<h4>Навигация</h4>
+						<a href="#" class="item__menu-hd">Услуги</a>
+						<a href="#" class="item__menu-hd ">Мероприятия</a>
+						<a href="#">Фото</a>
+						<a href="#">Франшиза</a>
+						<a href="#">Контакты</a>
 					</ul>
 				</nav>
 				<div class="footer__icon">
@@ -391,7 +397,8 @@
 			</div>
 		</div>
 	</div> -->
-	<script src="js/app.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script> 
+	<script src="./js/app.js"></script>
 </body>
 
 </html>
