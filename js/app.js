@@ -1,3 +1,4 @@
+
 const swiper = new Swiper('.comand__slider', {
   // loop: true,
   speed: 1500,
@@ -26,6 +27,231 @@ const swiper = new Swiper('.comand__slider', {
   touchRatio: 1, // Устанавливаем коэффициент для лучшего управления
   simulateTouch: true,
 });
+
+
+const swiper4 = new Swiper('.tarif__slider', {
+  speed: 1000,
+  pagination: {
+    el: '.swiper-pagination',
+    clickable: false, // глобальная настройка для всех breakpoints
+  },
+  slidesPerView: 3,
+  spaceBetween: 10,
+  breakpoints: {
+    0: {
+      centeredSlides: true,
+      spaceBetween: 20,
+      autoHeight: true, 
+      slidesPerView: 1,
+      pagination: {
+        el: '.swiper-pagination-tarif',
+        clickable: true, // глобальная настройка для всех breakpoints
+      },
+    },
+    1180: {
+      slidesPerView: 4,
+      spaceBetween: 10,
+      pagination: {
+        el: '.swiper-pagination-tarif',
+        clickable: true, // глобальная настройка для всех breakpoints
+      },
+    },
+    1335: {
+      slidesPerView: 5,
+      spaceBetween: 10,
+    },
+  },
+  touchEventsTarget: 'container',
+  touchRatio: 1,
+  simulateTouch: true,
+
+  on: {
+
+  },
+});
+
+
+
+
+const swiper2 = new Swiper('.viddeo__slider', {
+  speed: 1500,
+  pagination: {
+    el: '.viddeo-pagination',
+    clickable: false,
+  },
+  navigation: {
+    nextEl: '.viddeo-button-next',
+    prevEl: '.viddeo-button-prev',
+  },
+  slidesPerView: 3,
+  spaceBetween: 10,
+  breakpoints: {
+    0: {
+      centeredSlides: true,
+      spaceBetween: 20,
+      slidesPerView: 1,
+      pagination: {
+        el: '.viddeo-pagination',
+        clickable: true,
+      },
+    },
+    1180: {
+      slidesPerView: 3,
+      spaceBetween: 10,
+    },
+  },
+  touchEventsTarget: 'container',
+  touchRatio: 1,
+  simulateTouch: true,
+
+  on: {
+    breakpoint: function (swiper) {
+      // Обновляем состояние навигации при изменении брейкпоинта
+      setTimeout(() => {
+        swiper.update();
+        swiper.navigation.update();  // Обновляем состояние стрелок навигации
+      }, 1); // Задержка для корректного обновления
+    },
+    slideChange: function (swiper) {
+      // Обновляем состояние навигации при смене слайда
+      swiper.navigation.update();
+    },
+  },
+});
+
+
+const swiper3 = new Swiper('.vibor__slider', {
+  speed: 1500,
+  pagination: {
+    el: '.vibor-pagination',
+    clickable: false,
+  },
+  slidesPerView: 3,
+  spaceBetween: 10,
+  breakpoints: {
+    0: {
+      centeredSlides: true,
+      spaceBetween: 20,
+      slidesPerView: 1,
+      pagination: {
+        el: '.vibor-pagination',
+        clickable: true,
+      },
+    },
+    1180: {
+      slidesPerView: 2,
+      spaceBetween: 10,
+    },
+  },
+  touchEventsTarget: 'container',
+  touchRatio: 1,
+  simulateTouch: true,
+
+  on: {
+
+  },
+});
+
+
+const swiper6 = new Swiper('.vid__slider', {
+  speed: 1500,
+  pagination: {
+    el: '.vid-pagination',
+    clickable: false,
+  },
+  slidesPerView: 6,
+  spaceBetween: 10,
+  breakpoints: {
+    0: {
+      // centeredSlides: true,
+      spaceBetween: 20,
+      slidesPerView: 2,
+      pagination: {
+        el: '.vid-pagination',
+        clickable: true,
+      },
+    },
+    735: {
+      // centeredSlides: true,
+      spaceBetween: 20,
+      slidesPerView: 3,
+      pagination: {
+        el: '.vid-pagination',
+        clickable: true,
+      },
+    },
+      1224: {
+        // centeredSlides: true,
+        spaceBetween: 20,
+        slidesPerView: 5,
+        pagination: {
+          el: '.vid-pagination',
+          clickable: true,
+        },
+      },
+      
+    1316: {
+      slidesPerView: 6,
+      spaceBetween: 10,
+    },
+  },
+  touchEventsTarget: 'container',
+  touchRatio: 1,
+  simulateTouch: true,
+
+  on: {
+
+  },
+});
+
+
+
+const swiper5 = new Swiper('.otsiv__slider', {
+  speed: 1000,
+  pagination: {
+    // el: '.swiper-pagination-otsiv',
+    clickable: false, // глобальная настройка для всех breakpoints
+  },
+  navigation: {
+    nextEl: '.swiper-button-otsiv-next',
+    prevEl: '.swiper-button-otsiv-prev',
+  },
+  slidesPerView: 3,
+  spaceBetween: 10,
+  breakpoints: {
+    0: {
+      centeredSlides: true,
+      spaceBetween: 20,
+      slidesPerView: 1,
+      pagination: {
+        el: '.swiper-pagination-otsiv',
+        clickable: true, // глобальная настройка для всех breakpoints
+      },
+    },
+    0: {
+      centeredSlides: true,
+      spaceBetween: 20,
+      slidesPerView: 1,
+      pagination: {
+        el: '.swiper-pagination-otsiv',
+        clickable: true, // глобальная настройка для всех breakpoints
+      },
+    },
+    1180: {
+      slidesPerView: 3,
+      spaceBetween: 10,
+    },
+  },
+  touchEventsTarget: 'container',
+  touchRatio: 1,
+  simulateTouch: true,
+
+  on: {
+
+  },
+});
+
+
 
 function DynamicAdapt(type) {
   this.type = type;
@@ -534,229 +760,6 @@ document.querySelector('.vid-fon-back__button').addEventListener('click', functi
       video1.classList.add('hidden');
       video2.classList.remove('hidden');
   }
-});
-
-
-const swiper4 = new Swiper('.tarif__slider', {
-  speed: 1000,
-  pagination: {
-    el: '.swiper-pagination',
-    clickable: false, // глобальная настройка для всех breakpoints
-  },
-  slidesPerView: 3,
-  spaceBetween: 10,
-  breakpoints: {
-    0: {
-      centeredSlides: true,
-      spaceBetween: 20,
-      autoHeight: true, 
-      slidesPerView: 1,
-      pagination: {
-        el: '.swiper-pagination-tarif',
-        clickable: true, // глобальная настройка для всех breakpoints
-      },
-    },
-    1180: {
-      slidesPerView: 4,
-      spaceBetween: 10,
-      pagination: {
-        el: '.swiper-pagination-tarif',
-        clickable: true, // глобальная настройка для всех breakpoints
-      },
-    },
-    1335: {
-      slidesPerView: 5,
-      spaceBetween: 10,
-    },
-  },
-  touchEventsTarget: 'container',
-  touchRatio: 1,
-  simulateTouch: true,
-
-  on: {
-
-  },
-});
-
-
-
-
-const swiper2 = new Swiper('.viddeo__slider', {
-  speed: 1500,
-  pagination: {
-    el: '.viddeo-pagination',
-    clickable: false,
-  },
-  navigation: {
-    nextEl: '.viddeo-button-next',
-    prevEl: '.viddeo-button-prev',
-  },
-  slidesPerView: 3,
-  spaceBetween: 10,
-  breakpoints: {
-    0: {
-      centeredSlides: true,
-      spaceBetween: 20,
-      slidesPerView: 1,
-      pagination: {
-        el: '.viddeo-pagination',
-        clickable: true,
-      },
-    },
-    1180: {
-      slidesPerView: 3,
-      spaceBetween: 10,
-    },
-  },
-  touchEventsTarget: 'container',
-  touchRatio: 1,
-  simulateTouch: true,
-
-  on: {
-    breakpoint: function (swiper) {
-      // Обновляем состояние навигации при изменении брейкпоинта
-      setTimeout(() => {
-        swiper.update();
-        swiper.navigation.update();  // Обновляем состояние стрелок навигации
-      }, 1); // Задержка для корректного обновления
-    },
-    slideChange: function (swiper) {
-      // Обновляем состояние навигации при смене слайда
-      swiper.navigation.update();
-    },
-  },
-});
-
-
-const swiper3 = new Swiper('.vibor__slider', {
-  speed: 1500,
-  pagination: {
-    el: '.vibor-pagination',
-    clickable: false,
-  },
-  slidesPerView: 3,
-  spaceBetween: 10,
-  breakpoints: {
-    0: {
-      centeredSlides: true,
-      spaceBetween: 20,
-      slidesPerView: 1,
-      pagination: {
-        el: '.vibor-pagination',
-        clickable: true,
-      },
-    },
-    1180: {
-      slidesPerView: 2,
-      spaceBetween: 10,
-    },
-  },
-  touchEventsTarget: 'container',
-  touchRatio: 1,
-  simulateTouch: true,
-
-  on: {
-
-  },
-});
-
-
-const swiper6 = new Swiper('.vid__slider', {
-  speed: 1500,
-  pagination: {
-    el: '.vid-pagination',
-    clickable: false,
-  },
-  slidesPerView: 6,
-  spaceBetween: 10,
-  breakpoints: {
-    0: {
-      // centeredSlides: true,
-      spaceBetween: 20,
-      slidesPerView: 2,
-      pagination: {
-        el: '.vid-pagination',
-        clickable: true,
-      },
-    },
-    735: {
-      // centeredSlides: true,
-      spaceBetween: 20,
-      slidesPerView: 3,
-      pagination: {
-        el: '.vid-pagination',
-        clickable: true,
-      },
-    },
-      1224: {
-        // centeredSlides: true,
-        spaceBetween: 20,
-        slidesPerView: 5,
-        pagination: {
-          el: '.vid-pagination',
-          clickable: true,
-        },
-      },
-      
-    1316: {
-      slidesPerView: 6,
-      spaceBetween: 10,
-    },
-  },
-  touchEventsTarget: 'container',
-  touchRatio: 1,
-  simulateTouch: true,
-
-  on: {
-
-  },
-});
-
-
-
-const swiper5 = new Swiper('.otsiv__slider', {
-  speed: 1000,
-  pagination: {
-    // el: '.swiper-pagination-otsiv',
-    clickable: false, // глобальная настройка для всех breakpoints
-  },
-  navigation: {
-    nextEl: '.swiper-button-otsiv-next',
-    prevEl: '.swiper-button-otsiv-prev',
-  },
-  slidesPerView: 3,
-  spaceBetween: 10,
-  breakpoints: {
-    0: {
-      centeredSlides: true,
-      spaceBetween: 20,
-      slidesPerView: 1,
-      pagination: {
-        el: '.swiper-pagination-otsiv',
-        clickable: true, // глобальная настройка для всех breakpoints
-      },
-    },
-    0: {
-      centeredSlides: true,
-      spaceBetween: 20,
-      slidesPerView: 1,
-      pagination: {
-        el: '.swiper-pagination-otsiv',
-        clickable: true, // глобальная настройка для всех breakpoints
-      },
-    },
-    1180: {
-      slidesPerView: 3,
-      spaceBetween: 10,
-    },
-  },
-  touchEventsTarget: 'container',
-  touchRatio: 1,
-  simulateTouch: true,
-
-  on: {
-
-  },
 });
 
 
